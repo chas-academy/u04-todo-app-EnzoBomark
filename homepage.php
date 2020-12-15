@@ -5,6 +5,8 @@ include_once 'head.php';
 echo $_SESSION["usersUsername"] . 's ';
 echo pathinfo($_SERVER['PHP_SELF'], PATHINFO_FILENAME) . '.php';
 ?>
+<script src="js/table.js"></script>
+
 <main>
 <a href="includes/logout.inc.php">log out</a>
 
