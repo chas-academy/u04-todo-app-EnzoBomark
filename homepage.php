@@ -18,9 +18,12 @@ echo pathinfo($_SERVER['PHP_SELF'], PATHINFO_FILENAME) . '.php';
     </form>
 
 <br></br>
-<?php 
-$display = new DisplayList();
-?>
+<div class="list-container">
+    <?php 
+        $display = new DisplayList();
+    ?>
+</div>
+
 </main>
 
 <footer>

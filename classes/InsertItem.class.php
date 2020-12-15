@@ -2,7 +2,7 @@
 
     class InsertItem extends Dbh{
 
-        public function insert(string $listsTitle, string $listsBody, int $usersId, string $ListsDueDate){
+        public function insert(string $listsTitle, string $listsBody, int $usersId, $ListsDueDate){
             
             $sql = 'INSERT INTO lists(listsTitle, listsBody, listsCreatorId, ListsDueDate)
             VALUES (:listsTitle, :listsBody, :listsCreatorId, :ListsDueDate)';

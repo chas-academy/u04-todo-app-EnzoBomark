@@ -10,11 +10,17 @@
             $lists = $stmt->fetchAll();
 
             foreach($lists as $object){
-                echo $object->listsTitle . '<br>';
-                echo $object->listsBody . '<br>';
-                echo $object->listsDate . '<br>';
-                echo $object->listsCompleted . '<br>';
-                echo '<br>';
+                ?> 
+                    <div class="task-container">
+                        <h4 class="task-title"><?php echo $object->listsTitle; ?></h4>
+                        <p class="task-body"><?php echo $object->listsBody; ?></p>
+                        <p class="task-time-created"><?php echo $object->listsDate; ?></p>
+                        <?php echo $object->listsCompleted . '<br>'; ?>
+                        <button>Update <?php echo $object->listsId;?></button>
+                        <button>Done <?php echo $object->listsId;?></button>
+                        <button>Delete <?php echo $object->listsId;?></button>
+                    </div>
+                <?php 
             }
         }
     }
