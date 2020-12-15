@@ -7,15 +7,15 @@ if(isset($_POST["submit"])){
 
     $errorHandler = new LoginErrorHandler();
 
-    // if($errorHandler->emptyInputLogin($username, $password) !== false){
-    //     header("location: ../login.php?error=emptyinput");
-    //     exit();
-    // }
+    if($errorHandler->emptyInputLogin($username, $password) !== false){
+        header("location: ../login.php?error=emptyinput");
+        exit();
+    }
 
     $login = new Login();
     $login->loginUser($username, $password);
 }
-// else {
-//     header("location: ../login.php");
-//     exit();
-// }
+else {
+    header("location: ../login.php");
+    exit();
+}
