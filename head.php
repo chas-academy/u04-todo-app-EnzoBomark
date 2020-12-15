@@ -18,10 +18,5 @@ include_once 'includes/autoloader.inc.php';
 </head>
 <body>
     <header>
-            <?php 
-                // if(isset($_SESSION["usersId"])){
-                //     echo $_SESSION["usersUsername"];
-                // } else{
-                // }
-            ?>
+          
     </header>
