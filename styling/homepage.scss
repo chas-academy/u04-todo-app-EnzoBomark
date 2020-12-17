@@ -10,33 +10,27 @@ body {
     background-color: #EDF7F6;
 }
 
-.list-container {
-    display: grid;
-    grid-template-columns: repeat(8, 1fr);
-}
-
-.task-container {
-    margin: 10px 5px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-self: center;
-    width: 200px;
-    height: 200px;
+.list-table {
     background-color: white;
-    border-radius: 20px;
+    border-spacing: 0 20px;
+    width: 80%;
+    display: block;
 
-    h4 {
-        text-align: center;
-    }
+    tr {
+        display: flex;
+        flex-direction: column;
+        margin: 10px;
 
-    .task-body {
-        padding: 5px;
-    }
 
-    .task-time-created {
-        padding: 5px;
-        text-align: end;
-        color: lightgray;
+        td {
+            padding: 10px;
+        }
+
+        .td-body {
+            display: block;
+            max-width: 300px;
+            height: auto;
+            background-color: honeydew;
+        }
     }
 }

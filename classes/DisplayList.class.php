@@ -11,15 +11,13 @@
 
             foreach($lists as $object){
                 ?> 
-                    <div class="task-container">
-                        <h4 class="task-title"><?php echo $object->listsTitle; ?></h4>
-                        <p class="task-body"><?php echo $object->listsBody; ?></p>
-                        <p class="task-time-created"><?php echo $object->listsDate; ?></p>
-                        <?php echo $object->listsCompleted . '<br>'; ?>
-                        <button>Update <?php echo $object->listsId;?></button>
-                        <button>Done <?php echo $object->listsId;?></button>
-                        <button>Delete <?php echo $object->listsId;?></button>
-                    </div>
+                     <tr>
+                        <td><button>Done <?php echo $object->listsId;?></button> 
+                        <?php echo $object->listsTitle;?>
+                        <button>Expand <?php echo $object->listsId;?></button> </td>
+
+                        <td class="td-body" contenteditable='true'><?php echo $object->listsBody; ?></td> 
+                    </tr>
                 <?php 
             }
         }

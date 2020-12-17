@@ -5,7 +5,6 @@ include_once 'head.php';
 echo $_SESSION["usersUsername"] . 's ';
 echo pathinfo($_SERVER['PHP_SELF'], PATHINFO_FILENAME) . '.php';
 ?>
-<script src="js/table.js"></script>
 
 <main>
 <a href="includes/logout.inc.php">log out</a>
@@ -20,15 +19,23 @@ echo pathinfo($_SERVER['PHP_SELF'], PATHINFO_FILENAME) . '.php';
     </form>
 
 <br></br>
-<div class="list-container">
-    <?php 
+
+<table class="list-table" id="list-table">
+   <?php 
         $display = new DisplayList();
     ?>
-</div>
+
+    
+</table>
+
+
 
 </main>
 
 <footer>
 </footer>
+<script src="js/table.js"></script>
+
+
 </body>
 </html>

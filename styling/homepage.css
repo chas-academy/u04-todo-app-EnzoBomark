@@ -1,8 +1,7 @@
 * {
-  font-family: 'Roboto',
-    sans-serif;
+  font-family: 'Roboto', sans-serif;
   -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+          box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
@@ -11,44 +10,32 @@ body {
   background-color: #EDF7F6;
 }
 
-.list-container {
-  display: -ms-grid;
-  display: grid;
-  grid-template-columns: repeat(8, 1fr);
+.list-table {
+  background-color: white;
+  border-spacing: 0 20px;
+  width: 80%;
+  display: block;
 }
 
-.task-container {
-  margin: 10px 5px;
+.list-table tr {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -ms-flex-item-align: center;
-  align-self: center;
-  width: 200px;
-  height: 200px;
-  background-color: white;
-  border-radius: 20px;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 10px;
 }
 
-.task-container h4 {
-  text-align: center;
+.list-table tr td {
+  padding: 10px;
 }
 
-.task-container .task-body {
-  padding: 5px;
+.list-table tr .td-body {
+  display: block;
+  max-width: 300px;
+  height: auto;
+  background-color: honeydew;
 }
-
-.task-container .task-time-created {
-  padding: 5px;
-  text-align: end;
-  color: lightgray;
-}
-
 /*# sourceMappingURL=homepage.css.map */
