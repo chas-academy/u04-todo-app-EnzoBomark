@@ -1,52 +1,33 @@
- let table = document.getElementById('list-table');
- let cells = table.getElementsByTagName('td');
+let table = document.getElementById('list-table');
+let cells = table.getElementsByTagName('td');
 
+for (let i = 0; i < cells.length; i++) {
+    cells[i].onclick = function () {
 
- for (let i = 0; i < cells.length; i++) {
-     cells[i].onclick = function () {
-         if (this.hasAttribute('data-clicked')) return;
+        let newText;
+        let classname = cells[i].className;
+        let orgText = this.textContent;
 
-         //  this.setAttribute('data-clicked', 'true');
-         //  this.setAttribute('data-text', this.innerHTML);
+        this.onblur = function () {
+            newText = this.textContent;
+            if (orgText !== newText) {
+                loadText();
+            }
+        }
 
-         //  let input = document.createElement('input');
-         //  input.setAttribute('type', 'text');
-         //  input.value = this.innerHTML;
-         //  input.style.width = this.offsetWidth + "px";
-         //  input.style.height = this.offsetHeight + "px";
+        function loadText() {
+            const request = new XMLHttpRequest(); //Create xhr object
+            request.open('POST', 'includes/sampletext.inc.php', true);
+            request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
-         //  input.onblur = function () {
-         //      let td = input.parentElement;
-         //      let orig_text = input.parentElement.getAttribute('data-text');
-         //      let current_text = this.value;
+            request.onload = function () {
+                if (this.status == 200) {
+                    console.log(this.responseText);
+                }
+            }
 
-         //      if (orig_text !== current_text) {
-         //          //Save data here.
-         //          td.removeAttribute('data-clicked');
-         //          td.removeAttribute('data-text');
-         //          td.innerHTML = current_text;
-         //          console.log(orig_text + ' is change to ' + current_text);
-         //      } else {
-         //          td.removeAttribute('data-clicked');
-         //          td.removeAttribute('data-text');
-         //          td.innerHTML = orig_text;
-         //          console.log('no change');
-         //      }
-         //  }
-
-         //  this.innerHTML = '';
-         //  this.append(input);
-         //  this.firstElementChild.select();
-
-         let orgText = this.innerHTML;
-
-         this.onblur = function () {
-
-             if (orgText !== this.innerHTML) {
-                 console.log(this.innerHTML);
-             } else {
-                 console.log('no change');
-             }
-         }
-     }
- }
+            let params = 'name=' + newText + ', class=' + classname;
+            request.send(params);
+        }
+    }
+}

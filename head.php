@@ -14,10 +14,10 @@ include_once 'includes/autoloader.inc.php';
 
     <link rel="icon" type="image/png" href="img/favicon.png"/>
     <link rel="stylesheet" href="styling/homepage.css">
-<!-- 
+
     <link rel="preconnect" href="https://fonts.gstatic.com"> <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet"> 
 </head>
 <body>
     <header>

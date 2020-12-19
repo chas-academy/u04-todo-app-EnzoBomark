@@ -12,11 +12,8 @@
             foreach($lists as $object){
                 ?> 
                      <tr>
-                        <td><button>Done <?php echo $object->listsId;?></button> 
-                        <?php echo $object->listsTitle;?>
-                        <button>Expand <?php echo $object->listsId;?></button> </td>
-
-                        <td class="td-body" contenteditable='true'><?php echo $object->listsBody; ?></td> 
+                        <td class="<?php echo $object->listsId;?> listsTitle" contenteditable='true'> <?php echo $object->listsTitle;?> </td>
+                        <td class="<?php echo $object->listsId;?> listsBody" contenteditable='true'><?php echo $object->listsBody; ?></td> 
                     </tr>
                 <?php 
             }
