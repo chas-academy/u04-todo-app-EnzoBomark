@@ -1,22 +1,42 @@
 <?php 
+include_once 'autoloader.inc.php';
 
     class UpdateList extends Dbh{
-    
-            public function update(int $listsId){
-            
-            $sql = 'SELECT * FROM lists WHERE listsId = :listsId';
-            $stmt = $this->connect()->prepare($sql);
-            $stmt->execute(['listsId' => $listsId]);
-            $readList = $stmt->fetch();
 
+            public function updateValues(int $listsId, string $listsType, $value){
+               
+                if ($listsType == 'listsTitle'){
+                        $sql = 'UPDATE lists SET listsTitle = :listsTitle WHERE listsId = :listsId';
+                        $stmt = $this->connect()->prepare($sql);
+                        $stmt->execute(['listsTitle' => $value, 'listsId' => $listsId]);
+                } 
+                else if ($listsType == 'listsBody'){
+                        $sql = 'UPDATE lists SET listsBody = :listsBody WHERE listsId = :listsId';
+                        $stmt = $this->connect()->prepare($sql);
+                        $stmt->execute(['listsBody' => $value, 'listsId' => $listsId]);
+                }
+                else if ($listsType == 'listsCompleted'){
+                        
+                        $listsCompleted = $value == 'true' ? true : false;
+                        
+                        $sql = 'UPDATE lists SET listsCompleted = :listsCompleted WHERE listsId = :listsId';
+                        $stmt = $this->connect()->prepare($sql);
+                        $stmt->execute(['listsCompleted' => $listsCompleted, 'listsId' => $listsId]);
+                }
+                else if ($listsType == 'listsDueDate'){
+                        
+                        $sql = 'UPDATE lists SET listsDueDate = :listsDueDate WHERE listsId = :listsId';
+                        $stmt = $this->connect()->prepare($sql);
+                        $stmt->execute(['listsDueDate' => $value, 'listsId' => $listsId]);
+                }
+                else if ($listsType == 'listsCollapsed'){
 
-            $listsCompleted = $readList->listsCompleted == 1 ? NULL : 1;
-
-            $sql = 'UPDATE lists SET listsCompleted = :listsCompleted WHERE listsId = :listsId';
-            $stmt = $this->connect()->prepare($sql);
-            $stmt->execute(['listsCompleted' => $listsCompleted, 'listsId' => $listsId]);
+                        $listsCollapsed = $value == 'true' ? true : false;
+                        
+                        $sql = 'UPDATE lists SET listsCollapsed = :listsCollapsed WHERE listsId = :listsId';
+                        $stmt = $this->connect()->prepare($sql);
+                        $stmt->execute(['listsCollapsed' => $listsCollapsed, 'listsId' => $listsId]);
+                }
             }
     }
     
-    $update = new UpdateList();
-    $update->update(2);

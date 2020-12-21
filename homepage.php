@@ -14,28 +14,25 @@ echo pathinfo($_SERVER['PHP_SELF'], PATHINFO_FILENAME) . '.php';
     <form action="includes/insert.inc.php" method="POST">
     <input type="text" name="listsTitle" placeholder="Title...">
     <input type="text" name="listsBody" placeholder="Body...">
-    <input type="date" name="listsDueDate">
+    <input type="text" name="listsDueDate" placeholder="2021-01-01">
     <button type="submit" name="submit">Add task</button>
     </form>
-
 <br></br>
 
-<table class="list-table" id="list-table">
+<section class="list-table" id="list-table">
    <?php 
         $display = new DisplayList();
     ?>
-
-    
-</table>
-
-
+</section>
 
 </main>
 
 <footer>
 </footer>
-<script src="js/table.js"></script>
 
+<script src="js/ajax.js"></script>
+<script src="js/accordion.js"></script>
+<script src="js/accordion.onload.js"></script>
 
 </body>
 </html>

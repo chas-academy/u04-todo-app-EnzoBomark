@@ -11,10 +11,33 @@
 
             foreach($lists as $object){
                 ?> 
-                     <tr>
-                        <td class="<?php echo $object->listsId;?> listsTitle" contenteditable='true'> <?php echo $object->listsTitle;?> </td>
-                        <td class="<?php echo $object->listsId;?> listsBody" contenteditable='true'><?php echo $object->listsBody; ?></td> 
-                    </tr>
+                    <div class="list-wrapper">
+                        <div class="list-header" >
+                            <label class="checkbox"for="checkbox">o</label>
+                            <input type="checkbox" class="<?php echo $object->listsId;?> listsCompleted wrapper-content" <?php if($object->listsCompleted != false) echo 'checked';?> id="checkbox">
+                            
+                            <div class="<?php echo $object->listsId;?> listsTitle wrapper-content" contenteditable='true'><?php echo $object->listsTitle;?></div>
+
+                            <div class="<?php echo $object->listsId;?> collapse-link" onclick="collapse(this)">
+                                <div class="expand">+</div>
+                                <div class="collapse">-</div>
+                            </div>
+
+                        </div>
+                        
+                        <?php $collapsedValue = $object->listsCollapsed == 1 ? 'true' : 'false'; ?>
+                        
+                        <div class="<?php echo $object->listsId;?> listsCollapsed list-body" id="<?php echo $object->listsId;?>" data-collapsed="<?php echo $collapsedValue;?>">
+                            <div class="<?php echo $object->listsId;?> listsBody wrapper-content" contenteditable='true'><?php echo $object->listsBody; ?></div> 
+                            
+                            <div class="due-date">Due&nbsp;<p class="<?php echo $object->listsId;?> listsDueDate wrapper-content" contenteditable='true'> <?php echo $object->listsDueDate?></p></div>
+                            
+                            <p class="date-created"><?php echo $object->listsDate?></p>
+                        
+                        </div>   
+                    </div>
+
+                    
                 <?php 
             }
         }

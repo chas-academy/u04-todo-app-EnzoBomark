@@ -4,33 +4,107 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+
+    ::before {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    ::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    outline: none;
 }
 
-body {
-    background-color: #EDF7F6;
-}
+body {}
 
 .list-table {
-    background-color: white;
-    border-spacing: 0 20px;
-    width: 80%;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
 
-    tr {
-        display: flex;
-        flex-direction: column;
-        margin: 10px;
+    .list-wrapper {
 
+        width: 300px;
+        padding: 10px;
 
-        td {
-            padding: 10px;
+        .list-header {
+
+            display: grid;
+            grid-template-columns: 5% 90% 5%;
+
+            .checkbox {
+                font-weight: bolder;
+                user-select: none;
+
+                display: none;
+            }
+
+            .listsCompleted {
+                display: block;
+                cursor: pointer;
+            }
+
+            .listsTitle {
+                font-size: 18px;
+            }
+
+            .collapse-link {
+                text-decoration: none;
+                color: black;
+
+                font-size: 18px;
+
+                .expand {}
+
+                .collapse {
+                    display: none;
+                }
+
+            }
         }
 
-        .td-body {
-            display: block;
-            max-width: 300px;
-            height: auto;
-            background-color: honeydew;
+        .list-body {
+            height: 0px;
+            overflow: hidden;
+            position: relative;
+            transition: height 0.3s ease-out;
+
+            margin-top: 3px;
+            display: grid;
+            grid-template-columns: 5% 45% 45% 5%;
+
+            .listsBody {
+                grid-area: 1 / 2 / 2 / 4;
+                font-size: 14px;
+
+                margin-bottom: 20px;
+
+            }
+
+            .due-date {
+                grid-area: 2 / 2 / 3 / 3;
+                display: flex;
+                font-size: 12px;
+                cursor: default;
+
+                .listsDueDate {
+                    cursor: text;
+                }
+            }
+
+            .date-created {
+                grid-area: 2 / 3 / 3 / 4;
+                justify-self: end;
+                font-size: 12px;
+                cursor: default;
+
+            }
         }
     }
 }
