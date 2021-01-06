@@ -13,14 +13,30 @@
                 ?> 
                     <div class="list-wrapper">
                         <div class="list-header" >
-                            <label class="checkbox"for="checkbox">o</label>
-                            <input type="checkbox" class="<?php echo $object->listsId;?> listsCompleted wrapper-content" <?php if($object->listsCompleted != false) echo 'checked';?> id="checkbox">
+                                <div>O</div>
+                                <div>x</div>
+                                <input type="checkbox" class="<?php echo $object->listsId;?> listsCompleted wrapper-content" 
+                                <?php if($object->listsCompleted != false) echo 'checked';?> id="checkbox<?php echo $object->listsId;?>"
+                                onchange="checkedValue(this)">
+                               
+                                <label class="checkbox"for="checkbox<?php echo $object->listsId;?>">
+                                    <?php if($object->listsCompleted != false) {
+                                        echo '<img src="img/checkmark-outline.svg" alt="checkbox-checked">';
+                                    } else {
+                                        echo '<img src="img/ellipse-outline.svg" alt="checkbox-empty">';
+                                    }?>
+                                </label>
+                           
                             
                             <div class="<?php echo $object->listsId;?> listsTitle wrapper-content" contenteditable='true'><?php echo $object->listsTitle;?></div>
 
-                            <div class="<?php echo $object->listsId;?> collapse-link" onclick="collapse(this)">
-                                <div class="expand">+</div>
-                                <div class="collapse">-</div>
+                            <div class="<?php echo $object->listsId;?> collapse-link" onclick="collapse(this);">
+                                <?php 
+                                    $collapsedValue = $object->listsCollapsed == 1 ? 
+                                    '<img src="img/chevron-up-outline.svg" alt="up">' : 
+                                    '<img src="img/chevron-down-outline.svg" alt="down">'; 
+                                    echo $collapsedValue;
+                                ?>  
                             </div>
 
                         </div>
@@ -28,7 +44,7 @@
                         <?php $collapsedValue = $object->listsCollapsed == 1 ? 'true' : 'false'; ?>
                         
                         <div class="<?php echo $object->listsId;?> listsCollapsed list-body" id="<?php echo $object->listsId;?>" data-collapsed="<?php echo $collapsedValue;?>">
-                            <div class="<?php echo $object->listsId;?> listsBody wrapper-content" contenteditable='true'><?php echo $object->listsBody; ?></div> 
+                            <div class="<?php echo $object->listsId;?> listsBody wrapper-content" data-color="<?php echo $object->listsColor?>" contenteditable='true'><?php echo $object->listsBody; ?></div> 
                             
                             <div class="due-date">Due&nbsp;<p class="<?php echo $object->listsId;?> listsDueDate wrapper-content" contenteditable='true'> <?php echo $object->listsDueDate?></p></div>
                             
@@ -36,8 +52,6 @@
                         
                         </div>   
                     </div>
-
-                    
                 <?php 
             }
         }

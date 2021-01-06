@@ -2,18 +2,20 @@
 include_once 'autoloader.inc.php';
 session_start();
 
-if(isset($_POST["submit"])){
-    $listsTitle = $_POST["listsTitle"];
-    $listsBody = $_POST["listsBody"];
+if(isset($_POST['title'], $_POST['body'], $_POST['dueDate'], $_POST['color'])){
+    $listsTitle = $_POST['title'];
+    $listsBody = $_POST['body'];
     $listsCreatorId = $_SESSION["usersId"];
-    $listsDueDate = $_POST["listsDueDate"];
+    $listsDueDate = $_POST['dueDate'];
+    $listsColor = $_POST['color'];
+    
+    echo 'NEW VALUE ['. $listsTitle . '] '; 
+    echo 'ID ['.$listsBody . '] '; 
+    echo 'TYPE ['.$listsDueDate . '] '; 
+    echo 'COLOR ['.$listsColor . '] '; 
 
-    if($listsDueDate == 0000-00-00) $listsDueDate = NULL;
 
-    $insert = new InsertItem();
-    $insert->insert($listsTitle, $listsBody, $listsCreatorId, $listsDueDate);
+    $insertItem = new InsertItem();
+    $insertItem->insert($listsTitle, $listsBody, $listsCreatorId, $listsDueDate, $listsColor);
 }
-else {
-    header("location: ../homepage.php");
-    exit();
-}
+

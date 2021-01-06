@@ -59,12 +59,12 @@ for (let i = 0; i < cells.length; i++) {
 function loadData(value, id, type) {
 
     const request = new XMLHttpRequest(); //Create xhr object
-    request.open('POST', 'includes/sampletext.inc.php', true);
+    request.open('POST', 'includes/updatedata.inc.php', true);
     request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
     request.onload = function () {
         if (this.status == 200) {
-            console.log(this.responseText);
+            //console.log(this.responseText);
         }
     }
 
