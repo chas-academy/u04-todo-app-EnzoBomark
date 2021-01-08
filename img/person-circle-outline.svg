@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;}
+	.st1{fill:none;stroke:#0E0621;stroke-width:40;}
+	.st2{fill:none;stroke:#FFFFFF;stroke-width:40;}
+	.st3{fill:#FFFFFF;}
+</style>
+<title>Person Circle</title>
+<path class="st0" d="M-13.3-28.1"/>
+<path class="st0" d="M260.8,611.7C167.6,611.7,92,536.1,92,442.9s75.6-168.8,168.8-168.8s168.8,75.6,168.8,168.8
+	S354.1,611.7,260.8,611.7"/>
+<path class="st1" d="M260.8,593.9c-83.4,0-151-67.6-151-151s67.6-151,151-151s151,67.6,151,151S344.3,593.9,260.8,593.9"/>
+<path class="st0" d="M429.6,7.5c0,196.3-75.6,355.4-168.8,355.4S92,203.8,92,7.5"/>
+<path class="st2" d="M411.9,7.5c0,186.5-67.6,337.6-151,337.6S109.8,194,109.8,7.5"/>
+<path class="st3" d="M66,624c-18.8-33.5-48.2-124.6-34.8-158.1s65.7-135.3,71.1-117.9c5.3,17.4,52.3,53.6,52.3,53.6
+	s56.3,40.2,68.3,38.9c12.1-1.4,130-18.8,140.7-22.8s54.9-69.7,54.9-69.7s71.1,42.9,77.7,53.6c6.6,10.7,0,195.7,0,217.1"/>
+<g transform="translate(262 50)">
+	<circle class="st0" cx="-1.2" cy="197.4" r="204.3"/>
+	<circle class="st1" cx="-1.2" cy="197.4" r="186.6"/>
+</g>
+<g transform="translate(269 57)">
+	<circle class="st3" cx="-8.2" cy="190.4" r="80"/>
+	<circle class="st1" cx="-8.2" cy="190.4" r="62.2"/>
+</g>
+</svg>
