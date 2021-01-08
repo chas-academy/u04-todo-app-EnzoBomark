@@ -1,74 +1,66 @@
 <?php 
 include_once 'head.php';
 ?>
-<?php 
-echo $_SESSION["usersUsername"] . 's ';
-echo pathinfo($_SERVER['PHP_SELF'], PATHINFO_FILENAME) . '.php';
-?>
+
+<header>
+    <div id="clock">
+        <div id="date"></div>
+        <div id="month"></div>
+        <div id="weekday"></div>
+    </div>
+
+    <div id="add-task-icon" onclick="displayForm()"></div>
+    <a id="logout-icon" href="includes/logout.inc.php" onclick="return confirm
+    ('Are you sure to log out?')"><img src="img/person-circle-outline.svg" alt="avatar icon"></a>
+    <img id="settings-icon" src="img/settings-outline.svg" alt="settings icon">
+</header>
+
+
 <main>
-<a href="includes/logout.inc.php">log out</a>
-
-<br></br>
-
-
-<?php 
-
-    class UpdateList extends Dbh{
+    <div id="form-height">
+        <form id="add-task-form">
+            <input id="input-title" type="text" name="listsTitle" placeholder="Add title...">
+            <div id="input-body-wrapper"><div id="input-body" type="textarea" contenteditable="true"></div></div>
+            <div id="body-color"></div>     
+            <div class="calendar">
+                <div class="month">
+                        <i class="prev"><img src="img/chevron-back-outline.svg" alt="previous"></i>
+                            <div class="date">
+                                <h1></h1>
+                                <p></p>
+                            </div>
+                        <i class="next"><img src="img/chevron-forward-outline.svg" alt="next"></i>
+                    </div>
+                    <div class="weekdays">
+                        <div>S</div>
+                        <div>M</div>
+                        <div>T</div>
+                        <div>W</div>
+                        <div>T</div>
+                        <div>F</div>
+                        <div>S</div>
+                    </div>
+                    <div class="days"></div>
+                </div>
+            <input id="input-due-date" type="text" name="listsDueDate" placeholder="Due: Not Set" readonly>
+            <div id="input-submit-button" onclick="submitData()" >Add task</div>
+        </form>
+    </div>
     
-            public function update(int $listsId){
-            
-            $sql = 'SELECT * FROM lists WHERE listsId = :listsId';
-            $stmt = $this->connect()->prepare($sql);
-            $stmt->execute(['listsId' => $listsId]);
-            $readList = $stmt->fetch();
-
-
-            $listsCompleted = $readList->listsCompleted == 1 ? NULL : 1;
-
-            $sql = 'UPDATE lists SET listsCompleted = :listsCompleted WHERE listsId = :listsId';
-            $stmt = $this->connect()->prepare($sql);
-            $stmt->execute(['listsCompleted' => $listsCompleted, 'listsId' => $listsId]);
-            }
-    }
-    
-    $update = new UpdateList();
-    $update->update(2);
-?>
-<br></br>
-<?php
-
-    class DisplayList extends Dbh{
-
-        public function readList(int $usersId){
-            
-            $sql = 'SELECT * FROM lists WHERE listsCreatorId = :listsCreatorId';
-            $stmt = $this->connect()->prepare($sql);
-            $stmt->execute(['listsCreatorId' => $usersId]);
-            $lists = $stmt->fetchAll();
-
-            foreach($lists as $object){
-                echo $object->listsTitle . '<br>';
-                echo $object->listsBody . '<br>';
-                echo $object->listsDate . '<br>';
-                echo $object->listsCompleted . '<br>';
-                echo '<br>';
-            }
-
-        }
-    }
-
-    if(isset($_SESSION["usersId"])){                
-        $read = new DisplayList();
-        $read->readList($_SESSION["usersId"]);
-    
-    } else{
-        echo "no id";
-    }
-?>
+<section class="list-table" id="list-table">
+   <?php 
+        $display = new DisplayList();
+    ?>
+</section>
 
 </main>
 
 <footer>
 </footer>
+
+<script src="js/ajax.js"></script>
+<script src="js/tasks.js"></script>
+<script src="js/form.js"></script>
+
 </body>
 </html>
