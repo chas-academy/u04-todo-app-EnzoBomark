@@ -7,7 +7,200 @@
 }
 
 body {
+<<<<<<< Updated upstream
     background-color: #EDF7F6;
+=======
+    width: 100vw;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    display: grid;
+    grid-template-columns: 70% 10% 10% 10%;
+    width: 290px;
+
+    margin-top: 100px;
+    margin-bottom: 20px;
+
+    #clock {
+        height: 40px;
+        width: 100px;
+
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+
+        margin-left: 10px;
+
+        #date {
+            grid-area: 1 / 1 / 3 / 2;
+            font-size: 40px;
+            font-weight: bold;
+        }
+
+        #month {
+            grid-area: 1 / 2 / 2 / 3;
+            font-size: 11px;
+            font-weight: bold;
+
+            margin-top: 12px;
+
+        }
+
+        #weekday {
+            grid-area: 2 / 2 / 3 / 3;
+            font-size: 11px;
+        }
+    }
+
+    img {
+        width: 25px;
+
+        margin-top: 12px;
+        justify-self: end;
+        cursor: pointer;
+
+        transition: transform 0.3s;
+
+        &:hover {
+            transform: scale(1.2);
+        }
+
+        &:active {
+            transform: scale(1.1);
+        }
+
+    }
+
+    #logout-icon {
+        margin-left: 1px;
+    }
+
+    #settings-icon {
+        &:hover {
+            transform: rotate(30deg) scale(1.2);
+        }
+
+        &:active {
+            transform: rotate(30deg) scale(1.1);
+        }
+    }
+}
+
+#form-height {
+    max-height: 420px;
+    overflow: hidden;
+    position: relative;
+
+    margin-bottom: 20px;
+}
+
+#add-task-form {
+    width: 300px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 2.5fr 1fr 1fr 1fr 1fr;
+
+    margin-bottom: 15px;
+}
+
+#input-title {
+    grid-area: 1 / 1 / 2 / 3;
+    height: 40px;
+    width: inherit;
+    background-color: #F8F8F8;
+    text-indent: 15px;
+    border-radius: 10px;
+}
+
+#input-body-wrapper {
+    grid-area: 2 / 1 / 3 / 3;
+    height: 120px;
+    width: 300px;
+    background-color: #F8F8F8;
+    border-radius: 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    #input-body {
+        height: 100px;
+        width: inherit;
+        background-color: #F8F8F8;
+        font-size: 13px;
+        overflow: hidden;
+        resize: none;
+
+        padding: 0 50px 0 15px;
+    }
+}
+
+#input-due-date {
+    grid-area: 3 / 2 / 4 / 3;
+    height: 40px;
+    width: 90px;
+    background-color: #F8F8F8;
+    font-size: 12px;
+    border-radius: 10px;
+
+    text-align: center;
+    justify-self: end;
+    margin-bottom: 15px;
+    cursor: pointer;
+
+}
+
+#input-submit-button {
+    grid-area: 4 / 2 / 5 / 3;
+    height: 40px;
+    width: 90px;
+    border-radius: 10px;
+    justify-self: end;
+
+    font-size: 15px;
+    text-align: center;
+    padding-top: 10px;
+    color: #fff;
+    background-color: #9FB0E9;
+    cursor: pointer;
+}
+
+.calendar {
+    grid-area: 3 / 1 / 7 / 2;
+    width: 190px;
+    background-color: #F8F8F8;
+    border-radius: 20px;
+    padding-bottom: 10px;
+}
+
+.month {
+    width: 100%;
+    text-align: center;
+    border-radius: 20px 20px 0 0;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    i {
+        width: 13px;
+        height: 13px;
+
+        cursor: pointer;
+        margin-top: 15px;
+    }
+
+    h1 {
+        font-size: 13px;
+        letter-spacing: 1px;
+
+        margin-top: 15px;
+    }
+>>>>>>> Stashed changes
 }
 
 $imageHeight: 200px;
