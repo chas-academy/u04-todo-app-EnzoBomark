@@ -1,5 +1,4 @@
 <?php 
-
 class Dbh{
 private $host = 'localhost';
 private $user = 'root';

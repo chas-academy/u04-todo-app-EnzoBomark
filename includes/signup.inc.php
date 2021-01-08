@@ -26,12 +26,10 @@ if(isset($_POST["submit"])){
         header("location: ../signup.php?error=passworddontmatch");
         exit();
     }
-    
     if($errorHandler->usernameExists($usersUsername) !== false){
         header("location: ../signup.php?error=usernametaken");
         exit();
     } 
-
     if($errorHandler->emailExists($usersEmail) !== false){
         header("location: ../signup.php?error=emailtaken");
         exit();
@@ -39,7 +37,6 @@ if(isset($_POST["submit"])){
 
     $testObj = new Signup();
     $testObj->createUser($usersFullname, $usersUsername, $usersEmail, $usersPassword);
-
 } 
 else{
     header("location: ../signup.php");

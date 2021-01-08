@@ -13,10 +13,11 @@ include_once 'includes/autoloader.inc.php';
     <title><?php echo ucfirst(pathinfo($_SERVER['PHP_SELF'], PATHINFO_FILENAME));?></title>
 
     <link rel="icon" type="image/png" href="img/flower-outline.svg"/>
-    <link rel="stylesheet" href="styling/homepage.css">
+    <link rel="stylesheet" href="styling/<?php echo pathinfo($_SERVER['PHP_SELF'], PATHINFO_FILENAME);?>.css">
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet"> 
     
 </head>
 <body>
+

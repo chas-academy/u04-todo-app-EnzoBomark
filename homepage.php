@@ -1,17 +1,18 @@
 <?php 
 include_once 'head.php';
 ?>
-<?php 
-// echo $_SESSION["usersUsername"] . 's ';
-// echo pathinfo($_SERVER['PHP_SELF'], PATHINFO_FILENAME) . '.php';
-//<a href="includes/logout.inc.php">log out</a>
-?>
 
 <header>
-    <div>clock</div>
+    <div id="clock">
+        <div id="date"></div>
+        <div id="month"></div>
+        <div id="weekday"></div>
+    </div>
+
     <div id="add-task-icon" onclick="displayForm()"></div>
-    <img src="img/person-circle-outline.svg" alt="avatar icon">
-    <img src="img/settings-outline.svg" alt="add icon">
+    <a id="logout-icon" href="includes/logout.inc.php" onclick="return confirm
+    ('Are you sure to log out?')"><img src="img/person-circle-outline.svg" alt="avatar icon"></a>
+    <img id="settings-icon" src="img/settings-outline.svg" alt="settings icon">
 </header>
 
 
@@ -19,12 +20,9 @@ include_once 'head.php';
     <div id="form-height">
         <form id="add-task-form">
             <input id="input-title" type="text" name="listsTitle" placeholder="Add title...">
-            <input id="input-body" type="text" name="listsBody" placeholder="Add body...">
-            
+            <div id="input-body-wrapper"><div id="input-body" type="textarea" contenteditable="true"></div></div>
             <div id="body-color"></div>     
-            
             <div class="calendar">
-                    
                 <div class="month">
                         <i class="prev"><img src="img/chevron-back-outline.svg" alt="previous"></i>
                             <div class="date">
@@ -33,7 +31,6 @@ include_once 'head.php';
                             </div>
                         <i class="next"><img src="img/chevron-forward-outline.svg" alt="next"></i>
                     </div>
-                
                     <div class="weekdays">
                         <div>S</div>
                         <div>M</div>
@@ -43,14 +40,11 @@ include_once 'head.php';
                         <div>F</div>
                         <div>S</div>
                     </div>
-                
                     <div class="days"></div>
-                
                 </div>
             <input id="input-due-date" type="text" name="listsDueDate" placeholder="Due: Not Set" readonly>
             <div id="input-submit-button" onclick="submitData()" >Add task</div>
         </form>
-        
     </div>
     
 <section class="list-table" id="list-table">
