@@ -1,4 +1,6 @@
+//#region [CALENDAR IN THE FORM]
 const date = new Date();
+
 const months = [
     "January",
     "February",
@@ -20,31 +22,13 @@ const renderCalendar = () => {
     date.setDate(1);
 
     const monthDays = document.querySelector(".days");
-
-    const lastDay = new Date(
-        date.getFullYear(),
-        date.getMonth() + 1,
-        0
-    ).getDate();
-
-    const prevLastDay = new Date(
-        date.getFullYear(),
-        date.getMonth(),
-        0
-    ).getDate();
-
+    const lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+    const prevLastDay = new Date(date.getFullYear(), date.getMonth(), 0).getDate();
     const firstDayIndex = date.getDay();
-
-    const lastDayIndex = new Date(
-        date.getFullYear(),
-        date.getMonth() + 1,
-        0
-    ).getDay();
-
+    const lastDayIndex = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDay();
     const nextDays = 7 - lastDayIndex - 1;
 
     document.querySelector(".date h1").innerHTML = months[date.getMonth()];
-
 
     let days = "";
 
@@ -79,21 +63,28 @@ document.querySelector(".next").addEventListener("click", () => {
     renderCalendar();
 });
 
+
+function setDate(thisDate) {
+    dueDate = `${date.getFullYear()}-${date.getMonth() + 1}-${thisDate.textContent}`;
+    dateWindow.value = dueDate;
+}
+
 document.querySelector("#input-due-date").addEventListener("click", () => {
     dateWindow.value = null;
 });
+//#endregion
+
+//#region [BODY COLOR IN THE FORM]
+const colors = [
+    'rgb(200, 213, 255)',
+    'rgb(200, 255, 244)',
+    'rgb(255, 200, 200)',
+    'rgb(248, 200, 255)',
+    'rgb(255, 237, 200)',
+    'rgb(214, 255, 200)'
+];
 
 document.querySelector("#body-color").addEventListener("click", () => {
-
-    const colors = [
-        'rgb(200, 213, 255)',
-        'rgb(200, 255, 244)',
-        'rgb(255, 200, 200)',
-        'rgb(248, 200, 255)',
-        'rgb(255, 237, 200)',
-        'rgb(214, 255, 200)'
-    ];
-
     let randomColor = colors[Math.floor(Math.random() * colors.length)];
 
     while (randomColor == document.getElementById("body-color").style.backgroundColor) {
@@ -107,7 +98,6 @@ function setColorToBody() {
 
     for (let i = 0; i < body.length; i++) {
 
-
         if (body[i].dataset.color != "") {
             body[i].style.backgroundColor = body[i].dataset.color;
         } else {
@@ -115,12 +105,45 @@ function setColorToBody() {
         }
     }
 }
+//#endregion
 
-function setDate(thisDate) {
-    dueDate = `${date.getFullYear()}-${date.getMonth() + 1}-${thisDate.textContent}`;
-    dateWindow.value = dueDate;
+//#region [DISPLAY FORM]
+
+let addTaskIcon = document.getElementById("add-task-icon");
+let formHeight = document.getElementById("form-height");
+
+function expandForm() {
+    formHeight.style.height = "420px";
+    addTaskIcon.innerHTML = " <img src='img/remove-outline.svg' alt='remove icon'>";
 }
 
+function collapseForm() {
+    formHeight.style.height = "0px";
+    addTaskIcon.innerHTML = "<img src='img/add-outline.svg' alt='add icon'>";
+}
+
+function displayForm() {
+    document.getElementById("form-height").style.transition = "height 0.5s";
+    if (localStorage.getItem("form") == "open") {
+        localStorage.setItem("form", "close");
+        collapseForm()
+
+    } else {
+        localStorage.setItem("form", "open");
+        expandForm()
+    }
+}
+
+function displayFormOnLoad() {
+    if (localStorage.getItem("form") !== "open") {
+        collapseForm()
+    } else {
+        expandForm()
+    }
+}
+//#endregion
+
+//#region [SUBMIT FORM]
 function submitData() {
     let title = document.getElementById("input-title");
     let body = document.getElementById("input-body");
@@ -131,55 +154,12 @@ function submitData() {
         title.placeholder = "No input Given";
         title.style.backgroundColor = "#FFF2F2";
     } else {
-        sendData(title.value, body.value, dueDate.value, color)
+        sendData(title.value, body.innerHTML, dueDate.value, color)
         location.reload();
     }
 }
-
-function displayForm() {
-    document.getElementById("form-height").style.transition = "max-height 0.5s";
-
-    if (localStorage.getItem("form") == "open") {
-        localStorage.setItem("form", "close");
-        document.getElementById("form-height").style.maxHeight = "0px";
-        document.getElementById("add-task-icon").innerHTML = "<img src='img/add-outline.svg' alt='add icon'>";
-
-    } else {
-        localStorage.setItem("form", "open");
-        document.getElementById("form-height").style.maxHeight = "340px";
-        document.getElementById("add-task-icon").innerHTML = " <img src='img/remove-outline.svg' alt='remove icon'>";
-    }
-}
-
-function sendData(title, body, dueDate, color) {
-
-    const request = new XMLHttpRequest(); //Create xhr object
-    request.open('POST', 'includes/insert.inc.php', true);
-    request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-
-    request.onload = function () {
-        if (this.status == 200) {
-            //console.log(this.responseText);
-        }
-    }
-
-    let data = '' +
-        'title=' + window.encodeURIComponent(title) +
-        '&body=' + window.encodeURIComponent(body) +
-        '&dueDate=' + window.encodeURIComponent(dueDate) +
-        '&color=' + window.encodeURIComponent(color);
-
-
-    request.send(data);
-}
+//#endregion
 
 renderCalendar();
 setColorToBody();
-
-if (localStorage.getItem("form") == "open") {
-    document.getElementById("add-task-icon").innerHTML = " <img src='img/remove-outline.svg' alt='remove icon'>";
-    document.getElementById("form-height").style.maxHeight = "340px";
-} else {
-    document.getElementById("add-task-icon").innerHTML = "<img src='img/add-outline.svg' alt='add icon'>";
-    document.getElementById("form-height").style.maxHeight = "0px";
-}
+displayFormOnLoad();
