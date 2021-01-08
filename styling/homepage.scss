@@ -9,7 +9,6 @@
 
     color: #0E0621;
 
-
     &::before {
         box-sizing: border-box;
         margin: 0;
@@ -25,6 +24,7 @@
 
 body {
     width: 100vw;
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -33,121 +33,91 @@ body {
 header {
     display: grid;
     grid-template-columns: 70% 10% 10% 10%;
-    width: 300px;
+    width: 290px;
+
     margin-top: 100px;
     margin-bottom: 20px;
-    margin-left: 10px;
 
-    img {
-        justify-self: end;
-        width: 25px;
-    }
-}
+    #clock {
+        height: 40px;
+        width: 100px;
 
-.list-table {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    margin-bottom: 150px;
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
 
-    .list-wrapper {
+        margin-left: 10px;
 
-        width: 300px;
-        padding: 10px;
-
-        .list-header {
-
-            display: grid;
-            grid-template-columns: 10% 90% 5%;
-
-            .checkbox {
-                cursor: pointer;
-
-                width: 15px;
-                height: 15px;
-                margin-top: 3px;
-                user-select: none;
-            }
-
-            .listsCompleted {
-                display: none;
-            }
-
-            .listsTitle {
-                font-size: 18px;
-            }
-
-            .collapse-link {
-                cursor: pointer;
-                user-select: none;
-                color: black;
-
-                font-size: 18px;
-            }
+        #date {
+            grid-area: 1 / 1 / 3 / 2;
+            font-size: 40px;
+            font-weight: bold;
         }
 
-        .list-body {
-            height: 0px;
-            overflow: hidden;
-            position: relative;
-            transition: height 0.3s;
+        #month {
+            grid-area: 1 / 2 / 2 / 3;
+            font-size: 11px;
+            font-weight: bold;
 
-            margin-top: 3px;
-            display: grid;
-            grid-template-columns: 10% 40% 45% 5%;
+            margin-top: 12px;
 
-            .listsBody {
-                grid-area: 1 / 2 / 2 / 4;
-                font-size: 14px;
+        }
 
-                margin: 5px 0 10px 0;
-                background-color: #F8F8F8;
-                border-radius: 10px;
-                padding: 10px 10px 15px 10px;
+        #weekday {
+            grid-area: 2 / 2 / 3 / 3;
+            font-size: 11px;
+        }
+    }
 
-            }
+    img {
+        width: 25px;
 
-            .due-date {
-                grid-area: 2 / 2 / 3 / 3;
-                display: flex;
-                font-size: 12px;
-                cursor: default;
+        margin-top: 12px;
+        justify-self: end;
+        cursor: pointer;
 
-                .listsDueDate {
-                    cursor: text;
-                }
-            }
+        transition: transform 0.3s;
 
-            .date-created {
-                grid-area: 2 / 3 / 3 / 4;
-                justify-self: end;
-                font-size: 12px;
-                cursor: default;
+        &:hover {
+            transform: scale(1.2);
+        }
 
-            }
+        &:active {
+            transform: scale(1.1);
+        }
+
+    }
+
+    #logout-icon {
+        margin-left: 1px;
+    }
+
+    #settings-icon {
+        &:hover {
+            transform: rotate(30deg) scale(1.2);
+        }
+
+        &:active {
+            transform: rotate(30deg) scale(1.1);
         }
     }
 }
 
 #form-height {
-    max-height: 0px;
-    margin-bottom: 20px;
+    max-height: 420px;
     overflow: hidden;
     position: relative;
 
+    margin-bottom: 20px;
 }
-
 
 #add-task-form {
     width: 300px;
-    max-height: 330px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 2.5fr 1fr 1fr 1fr 1fr;
 
     margin-bottom: 15px;
-
 }
 
 #input-title {
@@ -156,34 +126,45 @@ header {
     width: inherit;
     background-color: #F8F8F8;
     text-indent: 15px;
-
     border-radius: 10px;
 }
 
-#input-body {
+#input-body-wrapper {
     grid-area: 2 / 1 / 3 / 3;
-    height: 40px;
-    width: inherit;
+    height: 120px;
+    width: 300px;
     background-color: #F8F8F8;
-    text-indent: 15px;
-
     border-radius: 10px;
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    #input-body {
+        height: 100px;
+        width: inherit;
+        background-color: #F8F8F8;
+        font-size: 13px;
+        overflow: hidden;
+        resize: none;
+
+        padding: 0 50px 0 15px;
+    }
 }
 
 #input-due-date {
     grid-area: 3 / 2 / 4 / 3;
-    margin-bottom: 15px;
     height: 40px;
     width: 90px;
-    font-size: 12px;
     background-color: #F8F8F8;
+    font-size: 12px;
+    border-radius: 10px;
+
     text-align: center;
     justify-self: end;
-
+    margin-bottom: 15px;
     cursor: pointer;
 
-    border-radius: 10px;
 }
 
 #input-submit-button {
@@ -200,7 +181,6 @@ header {
     background-color: #9FB0E9;
 }
 
-
 .calendar {
     grid-area: 3 / 1 / 7 / 2;
     width: 190px;
@@ -211,37 +191,43 @@ header {
 
 .month {
     width: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
     text-align: center;
     border-radius: 20px 20px 0 0;
 
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
     i {
-        margin-top: 15px;
         width: 13px;
         height: 13px;
+
         cursor: pointer;
+        margin-top: 15px;
     }
 
     h1 {
-        margin-top: 15px;
         font-size: 13px;
         letter-spacing: 1px;
+
+        margin-top: 15px;
     }
 }
 
 .weekdays {
-    margin-top: 10px;
     height: 20px;
+
+    margin-top: 10px;
+
     display: flex;
     justify-content: center;
     align-items: center;
 
     div {
+        width: calc(180px / 7);
         font-size: 10px;
         font-weight: bold;
-        width: calc(180px / 7);
+
         display: flex;
         justify-content: center;
         align-items: center;
@@ -250,29 +236,31 @@ header {
 
 .days {
     width: 100%;
+
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
 
     div {
         height: 25px;
+        width: calc(180px / 7);
         color: #000;
         font-size: 10px;
-        width: calc(180px / 7);
+        border-radius: 40px;
+
         display: flex;
         justify-content: center;
         align-items: center;
-        transition: background-color 0.2s;
-        border-radius: 40px;
-    }
 
+        transition: background-color 0.2s;
+    }
 }
 
 .days div:hover {
-    cursor: pointer;
     background-color: #9FB0E9;
     border-radius: 50px;
 
+    cursor: pointer;
 }
 
 .prev-date,
@@ -286,14 +274,127 @@ header {
 }
 
 #body-color {
-    position: relative;
     grid-area: 2 / 1 / 3 / 3;
-    justify-self: end;
+    position: relative;
+    height: 20px;
+    width: 20px;
+    background-color: #0E0621;
+    border-radius: 20px;
+
     top: 10px;
     right: 15px;
-    width: 20px;
-    height: 20px;
-    border-radius: 20px;
-    background-color: #0E0621;
+    justify-self: end;
     cursor: pointer;
+}
+
+.list-table {
+    margin-bottom: 150px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    .list-wrapper {
+        width: 300px;
+
+        padding: 10px;
+
+        .list-header {
+            display: grid;
+            grid-template-columns: 10% 90% 5%;
+
+            .edit-color {
+                width: 20px;
+                height: 20px;
+                background-color: #0E0621;
+                border-radius: 20px;
+
+                cursor: pointer;
+                transition: transform 0.3s;
+
+                &:active {
+                    transform: scale(1.2);
+                }
+            }
+
+            .delete-task {
+                width: 20px;
+                height: 20px;
+                display: none;
+
+                cursor: pointer;
+                transition: transform 0.3s;
+
+                &:active {
+                    transform: scale(1.2);
+                }
+            }
+
+            .checkbox {
+                width: 15px;
+                height: 15px;
+
+                user-select: none;
+                margin-top: 3px;
+                cursor: pointer;
+            }
+
+            .listsCompleted {
+                display: none;
+            }
+
+            .listsTitle {
+                font-size: 18px;
+            }
+
+            .collapse-link {
+                user-select: none;
+
+                margin-top: 4px;
+                cursor: pointer;
+
+            }
+        }
+
+        .list-body {
+            display: grid;
+            grid-template-columns: 10% 40% 45% 5%;
+            height: 0px;
+            overflow: hidden;
+            position: relative;
+
+            margin-top: 3px;
+            transition: height 0.3s;
+
+            .listsBody {
+                grid-area: 1 / 2 / 2 / 4;
+                font-size: 14px;
+                background-color: #F8F8F8;
+                border-radius: 10px;
+
+                padding: 15px 10px;
+                margin: 10px 0;
+            }
+
+            .due-date {
+                grid-area: 2 / 2 / 3 / 3;
+                font-size: 12px;
+
+                display: flex;
+                margin-left: 7px;
+                cursor: default;
+            }
+
+            .date-created {
+                grid-area: 2 / 3 / 3 / 4;
+                font-size: 12px;
+                color: #CBCBCB;
+
+                justify-self: end;
+                margin-right: 5px;
+                cursor: default;
+            }
+        }
+    }
 }

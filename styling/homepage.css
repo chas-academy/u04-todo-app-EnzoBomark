@@ -42,147 +42,104 @@ header {
   display: grid;
   -ms-grid-columns: 70% 10% 10% 10%;
       grid-template-columns: 70% 10% 10% 10%;
-  width: 300px;
+  width: 290px;
   margin-top: 100px;
   margin-bottom: 20px;
+}
+
+header #clock {
+  height: 40px;
+  width: 100px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
   margin-left: 10px;
 }
 
-header img {
-  -ms-grid-column-align: end;
-      justify-self: end;
-  width: 25px;
+header #clock #date {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-area: 1 / 1 / 3 / 2;
+  font-size: 40px;
+  font-weight: bold;
 }
 
-.list-table {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin-bottom: 150px;
-}
-
-.list-table .list-wrapper {
-  width: 300px;
-  padding: 10px;
-}
-
-.list-table .list-wrapper .list-header {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 10% 90% 5%;
-      grid-template-columns: 10% 90% 5%;
-}
-
-.list-table .list-wrapper .list-header .checkbox {
-  cursor: pointer;
-  width: 15px;
-  height: 15px;
-  margin-top: 3px;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-}
-
-.list-table .list-wrapper .list-header .listsCompleted {
-  display: none;
-}
-
-.list-table .list-wrapper .list-header .listsTitle {
-  font-size: 18px;
-}
-
-.list-table .list-wrapper .list-header .collapse-link {
-  cursor: pointer;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-  color: black;
-  font-size: 18px;
-}
-
-.list-table .list-wrapper .list-body {
-  height: 0px;
-  overflow: hidden;
-  position: relative;
-  -webkit-transition: height 0.3s;
-  transition: height 0.3s;
-  margin-top: 3px;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 10% 40% 45% 5%;
-      grid-template-columns: 10% 40% 45% 5%;
-}
-
-.list-table .list-wrapper .list-body .listsBody {
+header #clock #month {
   -ms-grid-row: 1;
   -ms-grid-row-span: 1;
   -ms-grid-column: 2;
-  -ms-grid-column-span: 2;
-  grid-area: 1 / 2 / 2 / 4;
-  font-size: 14px;
-  margin: 5px 0 10px 0;
-  background-color: #F8F8F8;
-  border-radius: 10px;
-  padding: 10px 10px 15px 10px;
+  -ms-grid-column-span: 1;
+  grid-area: 1 / 2 / 2 / 3;
+  font-size: 11px;
+  font-weight: bold;
+  margin-top: 12px;
 }
 
-.list-table .list-wrapper .list-body .due-date {
+header #clock #weekday {
   -ms-grid-row: 2;
   -ms-grid-row-span: 1;
   -ms-grid-column: 2;
   -ms-grid-column-span: 1;
   grid-area: 2 / 2 / 3 / 3;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  font-size: 12px;
-  cursor: default;
+  font-size: 11px;
 }
 
-.list-table .list-wrapper .list-body .due-date .listsDueDate {
-  cursor: text;
-}
-
-.list-table .list-wrapper .list-body .date-created {
-  -ms-grid-row: 2;
-  -ms-grid-row-span: 1;
-  -ms-grid-column: 3;
-  -ms-grid-column-span: 1;
-  grid-area: 2 / 3 / 3 / 4;
+header img {
+  width: 25px;
+  margin-top: 12px;
   -ms-grid-column-align: end;
       justify-self: end;
-  font-size: 12px;
-  cursor: default;
+  cursor: pointer;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+}
+
+header img:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+header img:active {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+header #logout-icon {
+  margin-left: 1px;
+}
+
+header #settings-icon:hover {
+  -webkit-transform: rotate(30deg) scale(1.2);
+          transform: rotate(30deg) scale(1.2);
+}
+
+header #settings-icon:active {
+  -webkit-transform: rotate(30deg) scale(1.1);
+          transform: rotate(30deg) scale(1.1);
 }
 
 #form-height {
-  max-height: 0px;
-  margin-bottom: 20px;
+  max-height: 420px;
   overflow: hidden;
   position: relative;
+  margin-bottom: 20px;
 }
 
 #add-task-form {
   width: 300px;
-  max-height: 330px;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 1fr;
       grid-template-columns: 1fr 1fr;
-  -ms-grid-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
-      grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+  -ms-grid-rows: 1fr 2.5fr 1fr 1fr 1fr 1fr;
+      grid-template-rows: 1fr 2.5fr 1fr 1fr 1fr 1fr;
   margin-bottom: 15px;
 }
 
@@ -199,17 +156,35 @@ header img {
   border-radius: 10px;
 }
 
-#input-body {
+#input-body-wrapper {
   -ms-grid-row: 2;
   -ms-grid-row-span: 1;
   -ms-grid-column: 1;
   -ms-grid-column-span: 2;
   grid-area: 2 / 1 / 3 / 3;
-  height: 40px;
+  height: 120px;
+  width: 300px;
+  background-color: #F8F8F8;
+  border-radius: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#input-body-wrapper #input-body {
+  height: 100px;
   width: inherit;
   background-color: #F8F8F8;
-  text-indent: 15px;
-  border-radius: 10px;
+  font-size: 13px;
+  overflow: hidden;
+  resize: none;
+  padding: 0 50px 0 15px;
 }
 
 #input-due-date {
@@ -218,16 +193,16 @@ header img {
   -ms-grid-column: 2;
   -ms-grid-column-span: 1;
   grid-area: 3 / 2 / 4 / 3;
-  margin-bottom: 15px;
   height: 40px;
   width: 90px;
-  font-size: 12px;
   background-color: #F8F8F8;
+  font-size: 12px;
+  border-radius: 10px;
   text-align: center;
   -ms-grid-column-align: end;
       justify-self: end;
+  margin-bottom: 15px;
   cursor: pointer;
-  border-radius: 10px;
 }
 
 #input-submit-button {
@@ -262,6 +237,8 @@ header img {
 
 .month {
   width: 100%;
+  text-align: center;
+  border-radius: 20px 20px 0 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -270,26 +247,24 @@ header img {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  text-align: center;
-  border-radius: 20px 20px 0 0;
 }
 
 .month i {
-  margin-top: 15px;
   width: 13px;
   height: 13px;
   cursor: pointer;
+  margin-top: 15px;
 }
 
 .month h1 {
-  margin-top: 15px;
   font-size: 13px;
   letter-spacing: 1px;
+  margin-top: 15px;
 }
 
 .weekdays {
-  margin-top: 10px;
   height: 20px;
+  margin-top: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -302,9 +277,9 @@ header img {
 }
 
 .weekdays div {
+  width: calc(180px / 7);
   font-size: 10px;
   font-weight: bold;
-  width: calc(180px / 7);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -330,9 +305,10 @@ header img {
 
 .days div {
   height: 25px;
+  width: calc(180px / 7);
   color: #000;
   font-size: 10px;
-  width: calc(180px / 7);
+  border-radius: 40px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -344,13 +320,12 @@ header img {
           align-items: center;
   -webkit-transition: background-color 0.2s;
   transition: background-color 0.2s;
-  border-radius: 40px;
 }
 
 .days div:hover {
-  cursor: pointer;
   background-color: #9FB0E9;
   border-radius: 50px;
+  cursor: pointer;
 }
 
 .prev-date,
@@ -364,20 +339,164 @@ header img {
 }
 
 #body-color {
-  position: relative;
   -ms-grid-row: 2;
   -ms-grid-row-span: 1;
   -ms-grid-column: 1;
   -ms-grid-column-span: 2;
   grid-area: 2 / 1 / 3 / 3;
-  -ms-grid-column-align: end;
-      justify-self: end;
+  position: relative;
+  height: 20px;
+  width: 20px;
+  background-color: #0E0621;
+  border-radius: 20px;
   top: 10px;
   right: 15px;
+  -ms-grid-column-align: end;
+      justify-self: end;
+  cursor: pointer;
+}
+
+.list-table {
+  margin-bottom: 150px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.list-table .list-wrapper {
+  width: 300px;
+  padding: 10px;
+}
+
+.list-table .list-wrapper .list-header {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 10% 90% 5%;
+      grid-template-columns: 10% 90% 5%;
+}
+
+.list-table .list-wrapper .list-header .edit-color {
   width: 20px;
   height: 20px;
-  border-radius: 20px;
   background-color: #0E0621;
+  border-radius: 20px;
   cursor: pointer;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+}
+
+.list-table .list-wrapper .list-header .edit-color:active {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+.list-table .list-wrapper .list-header .delete-task {
+  width: 20px;
+  height: 20px;
+  display: none;
+  cursor: pointer;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+}
+
+.list-table .list-wrapper .list-header .delete-task:active {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+.list-table .list-wrapper .list-header .checkbox {
+  width: 15px;
+  height: 15px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  margin-top: 3px;
+  cursor: pointer;
+}
+
+.list-table .list-wrapper .list-header .listsCompleted {
+  display: none;
+}
+
+.list-table .list-wrapper .list-header .listsTitle {
+  font-size: 18px;
+}
+
+.list-table .list-wrapper .list-header .collapse-link {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  margin-top: 4px;
+  cursor: pointer;
+}
+
+.list-table .list-wrapper .list-body {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 10% 40% 45% 5%;
+      grid-template-columns: 10% 40% 45% 5%;
+  height: 0px;
+  overflow: hidden;
+  position: relative;
+  margin-top: 3px;
+  -webkit-transition: height 0.3s;
+  transition: height 0.3s;
+}
+
+.list-table .list-wrapper .list-body .listsBody {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-area: 1 / 2 / 2 / 4;
+  font-size: 14px;
+  background-color: #F8F8F8;
+  border-radius: 10px;
+  padding: 15px 10px;
+  margin: 10px 0;
+}
+
+.list-table .list-wrapper .list-body .due-date {
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-area: 2 / 2 / 3 / 3;
+  font-size: 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: 7px;
+  cursor: default;
+}
+
+.list-table .list-wrapper .list-body .date-created {
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 1;
+  grid-area: 2 / 3 / 3 / 4;
+  font-size: 12px;
+  color: #CBCBCB;
+  -ms-grid-column-align: end;
+      justify-self: end;
+  margin-right: 5px;
+  cursor: default;
 }
 /*# sourceMappingURL=homepage.css.map */
