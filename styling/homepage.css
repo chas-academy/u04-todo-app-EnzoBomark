@@ -221,6 +221,7 @@ header #settings-icon:active {
   padding-top: 10px;
   color: #fff;
   background-color: #9FB0E9;
+  cursor: pointer;
 }
 
 .calendar {
