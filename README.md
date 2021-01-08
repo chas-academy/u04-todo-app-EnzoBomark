@@ -31,4 +31,16 @@ CREATE TABLE users (
 
 ## Usage
 
+#### Press
+* the + icon to add a task.
+* the User icon to logout.
+* the settings icon to delete and change color of the body.
+
+To update the title simply on the title, and the same for the body.
+
+## Icons 
+
+[IONICONS](https://ionicons.com/)
+
+
 
