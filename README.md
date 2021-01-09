@@ -5,7 +5,6 @@ u04-todo-app-EnzoBomark created by GitHub Classroom
 
 SQL Commands
 
-
 ```sql
 CREATE DATABASE devtest;
 
@@ -29,14 +28,57 @@ CREATE TABLE users (
 );
 ```
 
-## Usage
+## Project solves 
 
-#### Press
-* the + icon to add a task.
-* the User icon to logout.
-* the settings icon to delete and change color of the body.
+JavaScript is a client-side scripting language,
+whereas PHP is a server-side scripting language. 
 
-To update the title simply on the title, and the same for the body.
+...Simply speaking, JavaScript is the language of the front-end, 
+whereas PHP is the language of the back-end.
+
+The problem comes when trying to communicate with a server and client side language.
+
+##### Heres where Ajax comes in.
+AJAX is a developer's dream, because you can:
+
+Update a web page without reloading the page
+Request data from a server - after the page has loaded
+Receive data from a server - after the page has loaded
+Send data to a server - in the background.
+### Code example
+
+Simple Ajax with vanilla JavaScript and php
+
+```JavaScript
+function loadData(value, id, type) { // Ajax function to update tasks
+
+    const request = new XMLHttpRequest(); //Create xhr object
+    request.open('POST', 'includes/updatedata.inc.php', true);
+    request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+    let data = '' +
+        'value=' + window.encodeURIComponent(value) +
+        '&id=' + window.encodeURIComponent(id) +
+        '&type=' + window.encodeURIComponent(type);
+
+    request.send(data);
+}
+```
+
+```php
+<?php 
+include_once 'autoloader.inc.php';
+
+if(isset($_POST['value'], $_POST['id'], $_POST['type'])){
+    $listsValue = $_POST['value'];
+    $listsId = $_POST['id'];
+    $listsType = $_POST['type'];
+
+    $updateText = new UpdateList();
+    $updateText->updateValues($listsId, $listsType, $listsValue);
+}
+
+```
 
 ## Icons 
 

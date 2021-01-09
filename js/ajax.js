@@ -1,4 +1,4 @@
-function loadData(value, id, type) {
+function loadData(value, id, type) { // Ajax function to update tasks
 
     const request = new XMLHttpRequest(); //Create xhr object
     request.open('POST', 'includes/updatedata.inc.php', true);
@@ -12,7 +12,7 @@ function loadData(value, id, type) {
     request.send(data);
 }
 
-function sendData(title, body, dueDate, color) {
+function sendData(title, body, dueDate, color) { // Ajax function to Create tasks
 
     const request = new XMLHttpRequest(); //Create xhr object
     request.open('POST', 'includes/insert.inc.php', true);
@@ -27,7 +27,7 @@ function sendData(title, body, dueDate, color) {
     request.send(data);
 }
 
-function deleteData(id) {
+function deleteData(id) { // Ajax function to delete tasks
 
     const request = new XMLHttpRequest(); //Create xhr object
     request.open('POST', 'includes/deletedata.inc.php', true);
