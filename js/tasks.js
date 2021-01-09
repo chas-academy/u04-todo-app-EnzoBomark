@@ -110,12 +110,28 @@ function notCheckedStyle(header, collapseLink) {
     header.setAttribute("contenteditable", true);
 }
 
+//Select all
+document.querySelector("#select-all").addEventListener("click", () => {
+
+    let checkbox = document.getElementsByClassName("listsCompleted wrapper-content");
+
+    for (let i = 0; i < checkbox.length; i++) {
+        if (checkbox[i].checked == false) {
+            checkbox[i].checked = true;
+            checkedValue(checkbox[i]);
+            loadData(checkbox[i].checked, checkbox[i].classList[0], "listsCompleted");
+        }
+    }
+
+});
+
+
 // Onload
 checkboxOnload = document.getElementsByClassName('listsCompleted wrapper-content');
 headerOnload = document.getElementsByClassName('listsTitle wrapper-content');
 collapseLinkOnload = document.getElementsByClassName('collapse-link');
 
-for (var i = 0; i < checkboxOnload.length; i++) {
+for (let i = 0; i < checkboxOnload.length; i++) {
 
     if (checkboxOnload[i].checked) {
         checkedStyle(headerOnload[i], collapseLinkOnload[i]);

@@ -357,6 +357,36 @@ header #settings-icon:active {
   cursor: pointer;
 }
 
+#select-delete-wrapper {
+  width: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+#select-delete-wrapper #select-all {
+  background-color: #9FB0E9;
+  color: #fff;
+  height: 40px;
+  width: 90px;
+  border-radius: 10px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+#select-delete-wrapper #delete-selected {
+  background-color: #FF6D6D;
+  color: #fff;
+  height: 40px;
+  width: 90px;
+  border-radius: 10px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
 .list-table {
   margin-bottom: 150px;
   display: -webkit-box;

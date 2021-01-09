@@ -46,6 +46,11 @@ include_once 'head.php';
             <div id="input-submit-button" onclick="submitData()" >Add task</div>
         </form>
     </div>
+
+<section id="select-delete-wrapper">
+    <button id="select-all">Select all</button>
+    <button id="delete-selected">Delete</button>
+</section>
     
 <section class="list-table" id="list-table">
    <?php 

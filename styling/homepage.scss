@@ -288,6 +288,38 @@ header {
     cursor: pointer;
 }
 
+
+#select-delete-wrapper {
+
+    width: 200px;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+
+    #select-all {
+        background-color: #9FB0E9;
+        color: #fff;
+        height: 40px;
+        width: 90px;
+        border-radius: 10px;
+        font-size: 15px;
+
+        cursor: pointer;
+    }
+
+    #delete-selected {
+        background-color: #FF6D6D;
+        color: #fff;
+        height: 40px;
+        width: 90px;
+        border-radius: 10px;
+        font-size: 15px;
+
+        cursor: pointer;
+    }
+}
+
+
 .list-table {
     margin-bottom: 150px;
 
