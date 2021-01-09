@@ -114,11 +114,13 @@ let formHeight = document.getElementById("form-height");
 
 function expandForm() {
     formHeight.style.height = "420px";
+    formHeight.style.marginBottom = "20px";
     addTaskIcon.innerHTML = " <img src='img/remove-outline.svg' alt='remove icon'>";
 }
 
 function collapseForm() {
     formHeight.style.height = "0px";
+    formHeight.style.marginBottom = "0px";
     addTaskIcon.innerHTML = "<img src='img/add-outline.svg' alt='add icon'>";
 }
 

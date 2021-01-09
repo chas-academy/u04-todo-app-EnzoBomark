@@ -108,7 +108,6 @@ header {
     overflow: hidden;
     position: relative;
 
-    margin-bottom: 20px;
 }
 
 #add-task-form {
@@ -290,8 +289,7 @@ header {
 
 
 #select-delete-wrapper {
-
-    width: 200px;
+    width: 190px;
     display: flex;
     justify-content: space-around;
     margin-bottom: 20px;
@@ -311,7 +309,7 @@ header {
         background-color: #FF6D6D;
         color: #fff;
         height: 40px;
-        width: 90px;
+        width: 70px;
         border-radius: 10px;
         font-size: 15px;
 

@@ -122,7 +122,6 @@ document.querySelector("#select-all").addEventListener("click", () => {
             loadData(checkbox[i].checked, checkbox[i].classList[0], "listsCompleted");
         }
     }
-
 });
 
 
@@ -153,6 +152,24 @@ function deleteTasks(task) {
         }, 50);
     }
 }
+
+
+// Delete selected tasks
+document.querySelector("#delete-selected").addEventListener("click", () => {
+
+    let checkbox = document.getElementsByClassName("listsCompleted wrapper-content");
+
+    for (let i = 0; i < checkbox.length; i++) {
+        if (checkbox[i].checked == true) {
+            deleteData(checkbox[i].classList[0])
+        }
+    }
+
+    setTimeout(function () {
+        location.reload();
+    }, 50);
+});
+
 //#endregion
 
 //#region [UPDATE TASK]
