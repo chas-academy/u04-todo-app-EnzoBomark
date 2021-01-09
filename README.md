@@ -33,9 +33,8 @@ CREATE TABLE users (
 JavaScript is a client-side scripting language,
 whereas PHP is a server-side scripting language. 
 
-...Simply speaking, JavaScript is the language of the front-end, 
+Simply speaking, JavaScript is the language of the front-end, 
 whereas PHP is the language of the back-end.
-
 The problem comes when trying to communicate with a server and client side language.
 
 ##### Heres where Ajax comes in.
@@ -52,7 +51,7 @@ Simple Ajax with vanilla JavaScript and php
 ```JavaScript
 function loadData(value, id, type) { // Ajax function to update tasks
 
-    const request = new XMLHttpRequest(); //Create xhr object
+    const request = new XMLHttpRequest(); // Create xhr object
     request.open('POST', 'includes/updatedata.inc.php', true);
     request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
