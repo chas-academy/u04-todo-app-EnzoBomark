@@ -9,7 +9,7 @@ SQL Commands
 CREATE DATABASE devtest;
 
 CREATE TABLE lists (
-	listsID int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+	listsId int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
 	listsCreatorId int(11) NOT NULL,
         listsTitle varchar(128) NOT NULL,
 	listsBody varchar(4096) NOT NULL,
