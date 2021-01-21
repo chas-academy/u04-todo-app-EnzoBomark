@@ -23,6 +23,7 @@ CREATE TABLE lists (
 CREATE TABLE users (
 	usersId int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
 	usersFullname varchar(128) NOT NULL,
+	usersUsername varchar(128) NOT NULL,
         usersEmail varchar(128) NOT NULL,
 	usersPassword varchar(128) NOT NULL
 );
